@@ -11,31 +11,38 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:super-toolbox.helloWorld"
+		"onCommand:super-toolbox.helloWorld",
+		"onView:time-tools"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"viewsContainers": {
 			"activitybar": [{
-				"id": "v2ex",
-				"title": "V2EX",
-				"icon": "images/v.svg"
+				"id": "superToolbox",
+				"title": "SuperToolbox",
+				"icon": "images/box.svg"
 			}]
 		},
 		"views": {
-			"v2ex": [{
-					"id": "v2ex-explore",
-					"name": "首页"
-				},
-				{
-					"id": "v2ex-custom",
-					"name": "自定义"
-				},
-				{
-					"id": "v2ex-collection",
-					"name": "收藏节点"
-				}
-			]
+			"superToolbox": [{
+				"id": "time-tools",
+				"name": "时间工具"
+			}]
+		},
+		"commands": [{
+			"command": "super-toolbox.refreshAll",
+			"title": "刷新",
+			"icon": "$(refresh)"
+		}, {
+			"command": "super-toolbox.helloWorld",
+			"title": "helloworld"
+		}],
+		"menus": {
+			"view/title": [{
+				"command": "super-toolbox.refreshAll",
+				"when": "view == time-tools",
+				"group": "navigation@1"
+			}]
 		}
 
 	},
